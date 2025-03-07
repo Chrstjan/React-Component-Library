@@ -62,11 +62,12 @@ export const LoginForm = () => {
             {...register("username", {
               required: "username is required",
               pattern: {
+                value: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
                 message: "Invalid username format",
               },
               minLength: {
-                value: 5,
-                message: "username must be at least 5 characters",
+                value: 8,
+                message: "username must be at least 8 characters",
               },
             })}
             type="email"
@@ -74,11 +75,12 @@ export const LoginForm = () => {
             name="username"
             placeholder="Brugernavn"
           />
-          {errors.email ? <p>{errors.username.message}</p> : null}
+          {errors.username ? <p>{errors.username.message}</p> : null}
           <input
             {...register("password", {
               required: "password is required",
               pattern: {
+                value: /^[A-Za-z\d@$!%*?&]{5,}$/,
                 message: "Invalid password format",
               },
               minLength: {
@@ -91,7 +93,7 @@ export const LoginForm = () => {
             name="password"
             placeholder="Adgangskode"
           />
-          {errors.email ? <p>{errors.password.message}</p> : null}
+          {errors.password ? <p>{errors.password.message}</p> : null}
           <span className={s.buttonContainer}>
             <input type="submit" value="Login" />
             <input type="reset" value="Annuller" />

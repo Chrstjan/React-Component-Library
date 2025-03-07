@@ -1,6 +1,9 @@
 import { LandingPage } from "../pages/LandingPage";
-import { PageNotFound } from "../pages/PageNotFound";
+import { ProductsPage } from "../pages/ProductsPage";
+import { ProductCategoriesPage } from "../pages/ProductCategoriesPage";
+import { CategoryProductsPage } from "../pages/CategoryProductsPage";
 import { UserPage } from "../pages/UserPage";
+import { PageNotFound } from "../pages/PageNotFound";
 
 export const paths = [
   {
@@ -8,6 +11,22 @@ export const paths = [
     path: "/",
     element: LandingPage,
     text: "Home",
+  },
+  {
+    id: 2,
+    path: "/products",
+    element: ProductsPage,
+    text: "Products"
+  },
+  {
+    id: 3,
+    path: "/products/:category",
+    element: ProductCategoriesPage,
+  },
+  {
+    id: 4,
+    path: "/products/:category/:product",
+    element: CategoryProductsPage,
   },
   {
     id: 40,
